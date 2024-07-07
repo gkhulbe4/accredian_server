@@ -2,6 +2,7 @@ import nodemailer from "nodemailer";
 import "dotenv/config";
 import hbs from "nodemailer-express-handlebars";
 import path from "path";
+import BASE_URL from "./globalConstants.js";
 
 const sendMail = async (email, name, courseTitle) => {
   const transporter = nodemailer.createTransport({
@@ -39,6 +40,7 @@ const sendMail = async (email, name, courseTitle) => {
     context: {
       name: `${name}`,
       courseTitle: `${courseTitle}`,
+      base_url: `${BASE_URL}`,
     },
   };
 
